@@ -11,26 +11,22 @@ import Button from './Button'
 
 
 function Header() {
-    const [name, setName] = useState("Name")
-    const [email, setEmail] = useState("Email")
-    const [msg, setMsg] = useState("Message")
+    const [name, setName] = useState(null)
+    const [email, setEmail] = useState(null)
+    const [msg, setMsg] = useState(null)
 
     const onSubmitHandle = (e) =>{
         e.preventDefault();
        setName(e.target[0].value)
-        console.log(name);
         setEmail(e.target[1].value)
-        console.log(email);
         setMsg(e.target[2].value)
-        console.log(msg);
-
     }
 
     const onViaCallHandle = () =>{
         console.log("via call")
     }
   return (
-    <div className='mt-[72px] w-[1161px] flex flex-col justify-center items-start font-font-family m-auto'>
+    <div className='mt-[72px] h-auto w-[1161px] flex flex-col justify-center items-start font-font-family m-auto'>
         {/* heading section */}
         <div className='w-[975px] h-auto text-left flex flex-col place-items-start'>
             <h1 className='text-6xl font-bold'>CONTACT US</h1>
@@ -41,7 +37,7 @@ function Header() {
             <div className='flex flex-col gap-y-[17px]'>
                 <div className='flex gap-x-8'>
                     <Button  
-                    className={'px-2'}
+                    className=""
                     icon={<BsChatLeftText/>}
                     text="VIA SUPPORT CHAT">
                     </Button>
@@ -53,7 +49,7 @@ function Header() {
                 </div>
                 <div>
                     <div>
-                    <Button  className={'bg-white text-black hover:bg-black hover:text-white w-full'} icon={<BsChatLeftText />}
+                    <Button  className='!bg-white !text-black hover:bg-black hover:text-white w-full' icon={<BsChatLeftText />}
                     text="VIA EMAIL FORM">
                     </Button>
                     </div>
@@ -92,6 +88,11 @@ function Header() {
                 <img src={bubble} alt="" className='absolute top-[125.23px] left-[459.5px] w-[103.11px] h-[104.3px]' />
             </div>
         </div>
+        {name && <div className='h-auto w-60  text-center border border-black rounded-md font-semibold'> 
+                <h2 className='text-2xl'>{name}</h2>   
+                <p className='text-gray-600 '>{email}</p>
+                <p className='text-gray-600 '>{msg}</p>
+        </div>}
     </div>
   )
 }

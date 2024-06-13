@@ -1,7 +1,6 @@
 import React from 'react'
 
 function Button({
-    isOutline,
     text,
     icon,
     className,
