@@ -18,7 +18,7 @@ const menu = [
 
 function Navbar() {
   return (
-    <nav className='flex justify-between items-center w-full h-[72px] '>
+    <nav className='flex  items-center justify-between w-full h-[72px] font-font-family'>
        {/* logo section */}
         <div>
             <img className='w-[72px] h-[72px]' src={logo} alt="" />
