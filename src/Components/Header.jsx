@@ -39,7 +39,6 @@ function Header() {
             <div className='flex flex-col gap-y-[17px]'>
                 <div className='flex gap-x-8'>
                     <Button  
-                    className=""
                     icon={<BsChatLeftText/>}
                     text="VIA SUPPORT CHAT">
                     </Button>
@@ -50,7 +49,7 @@ function Header() {
                 </div>
                 <div>
                     <div>
-                    <Button  className='!bg-white !text-black hover:bg-black hover:text-white w-full' icon={<BsChatLeftText />}
+                    <Button style={{"backgroundColor": "white", "color":"black"}} className='hover:text-white hover:bg-black w-full' icon={<BsChatLeftText />}
                     text="VIA EMAIL FORM">
                     </Button>
                     </div>
@@ -60,17 +59,17 @@ function Header() {
                 <form onSubmit={onSubmitHandle} className=' flex flex-col gap-y-[23px]'>
                 <div className='font-semibold'>
                       <div className='flex flex-col gap-y-5'>
-                        <div className='border border-black relative '>
+                        <div className='border border-black relative rounded-md'>
                         <label htmlFor='name' className='absolute -top-3 left-2 px-4 bg-white'>Name</label>
-                            <input type="text" value={name} onChange={(e)=> setName(e.target.value)} className='w-full py-2 px-4' />
+                            <input type="text" value={name} onChange={(e)=> setName(e.target.value)} className='w-full py-2 px-4 rounded-md' />
                         </div>
-                        <div className='border border-black relative'>
+                        <div className='border border-black relative rounded-md'>
                             <label htmlFor='eamil' className='absolute -top-3 left-2 px-4 bg-white'>E-Mail</label>
-                            <input type="email" value={email} onChange={(e)=> setEmail(e.target.value)} className='w-full py-2 px-4'/>
+                            <input type="email" value={email} onChange={(e)=> setEmail(e.target.value)} className='w-full py-2 px-4 rounded-md'/>
                         </div>
-                        <div className='border border-black relative'>
+                        <div className='h-[142px] border border-black relative rounded-md'>
                         <label htmlFor='text' className='absolute -top-3 left-2 px-4 bg-white'>Text</label>
-                            <textarea rows={31} type="text" value={msg} onChange={(e)=> setMsg(e.target.value)} className='h-32 w-full py-2 px-4' />
+                            <textarea  type="text" value={msg} onChange={(e)=> setMsg(e.target.value)} className='h-[140px] w-full pt-2 px-4 rounded-md' />
                         </div>
                        <div className='flex justify-end'>
                        <Button className={'w-[220px] text-white '} text="SUBMIT">

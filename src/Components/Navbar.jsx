@@ -25,9 +25,9 @@ function Navbar() {
         </div>
        {/* Menu bar section */}
         <div>
-            <ul className='flex gap-x-6 uppercase font-semibold'>
+            <ul className='flex gap-x-6 uppercase font-semibold '>
                 {menu.map((item)=>(
-                    <li key={item.id}>
+                    <li className='hover:scale-105 hover:text-gray-600' key={item.id}>
                         {item.name}
                     </li>
                 ))}
