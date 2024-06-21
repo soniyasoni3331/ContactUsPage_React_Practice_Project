@@ -11,20 +11,22 @@ import Button from './Button'
 
 
 function Header() {
-    const [name, setName] = useState(null)
-    const [email, setEmail] = useState(null)
-    const [msg, setMsg] = useState(null)
+    const [name, setName] = useState("")
+    const [email, setEmail] = useState("")
+    const [msg, setMsg] = useState("")
 
     const onSubmitHandle = (e) =>{
         e.preventDefault();
        setName(e.target[0].value)
         setEmail(e.target[1].value)
         setMsg(e.target[2].value)
+        makeAlert()
+    }
+    
+    function makeAlert(){
+        alert(`Welcome ${name}! Your email is "${email}" and Your msg is "${msg}"`);
     }
 
-    const onViaCallHandle = () =>{
-        console.log("via call")
-    }
   return (
     <div className='mt-[72px] h-auto w-[1161px] flex flex-col justify-center items-start font-font-family m-auto'>
         {/* heading section */}
@@ -42,7 +44,6 @@ function Header() {
                     text="VIA SUPPORT CHAT">
                     </Button>
                     <Button  
-                    onClick={()=>onViaCallHandle()}
                     icon={<FaPhoneAlt />}
                     text="VIA CALL">
                     </Button>
@@ -61,15 +62,15 @@ function Header() {
                       <div className='flex flex-col gap-y-5'>
                         <div className='border border-black relative '>
                         <label htmlFor='name' className='absolute -top-3 left-2 px-4 bg-white'>Name</label>
-                            <input type="text" className='w-full py-2 px-4' />
+                            <input type="text" value={name} onChange={(e)=> setName(e.target.value)} className='w-full py-2 px-4' />
                         </div>
                         <div className='border border-black relative'>
                             <label htmlFor='eamil' className='absolute -top-3 left-2 px-4 bg-white'>E-Mail</label>
-                            <input type="email" className='w-full py-2 px-4'/>
+                            <input type="email" value={email} onChange={(e)=> setEmail(e.target.value)} className='w-full py-2 px-4'/>
                         </div>
                         <div className='border border-black relative'>
                         <label htmlFor='text' className='absolute -top-3 left-2 px-4 bg-white'>Text</label>
-                            <textarea rows={31} type="text" className='h-32 w-full py-2 px-4' />
+                            <textarea rows={31} type="text" value={msg} onChange={(e)=> setMsg(e.target.value)} className='h-32 w-full py-2 px-4' />
                         </div>
                        <div className='flex justify-end'>
                        <Button className={'w-[220px] text-white '} text="SUBMIT">
@@ -88,11 +89,6 @@ function Header() {
                 <img src={bubble} alt="" className='absolute top-[125.23px] left-[459.5px] w-[103.11px] h-[104.3px]' />
             </div>
         </div>
-        {name && <div className='h-auto w-60  text-center border border-black rounded-md font-semibold'> 
-                <h2 className='text-2xl'>{name}</h2>   
-                <p className='text-gray-600 '>{email}</p>
-                <p className='text-gray-600 '>{msg}</p>
-        </div>}
     </div>
   )
 }
